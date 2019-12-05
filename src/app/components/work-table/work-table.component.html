@@ -1,0 +1,22 @@
+<div class="my-work-container">
+  <div>
+    <div class="row" *ngIf="projet">
+      <div class="col s12 m4" *ngFor="let p of projet">
+        <div class="card">
+          <div class="card-image">
+            <img [src]="p.image">
+            <span class="card-title black-text">{{p.name}}</span>
+          </div>
+          <div class="card-content">
+            <p>
+              {{p.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!projet">
+      Chargement des projets
+    </div>
+  </div>
+</div>

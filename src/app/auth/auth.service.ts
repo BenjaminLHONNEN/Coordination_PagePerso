@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 import { TokenStorage } from './token.storage';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
 
   login(email : string, password : string) : Observable <any> {
     return Observable.create(observer => {
-      this.http.post('/api/auth/login', {
+      this.http.post( environment.url + '/api/auth/login', {
         email,
         password
       }).subscribe((data : any) => {
@@ -27,7 +28,7 @@ export class AuthService {
 
   register(fullname : string, email : string, password : string, repeatPassword : string) : Observable <any> {
     return Observable.create(observer => {
-      this.http.post('/api/auth/register', {
+      this.http.post(environment.url + '/api/auth/register', {
         fullname,
         email,
         password,
@@ -55,7 +56,7 @@ export class AuthService {
     return Observable.create(observer => {
       const tokenVal = this.token.getToken();
       if (!tokenVal) return  observer.complete();
-      this.http.get('/api/auth/me').subscribe((data : any) => {
+      this.http.get(environment.url + '/api/auth/me').subscribe((data : any) => {
         observer.next({user: data.user});
         this.setUser(data.user);
         observer.complete();

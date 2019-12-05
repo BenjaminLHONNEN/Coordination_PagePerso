@@ -1,0 +1,11 @@
+.slider-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #686868;
+
+  width: available;
+  overflow-y: hidden;
+}

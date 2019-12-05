@@ -1,26 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {RouterModule, PreloadAllModules} from '@angular/router';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {SharedModule} from './shared/shared.module';
+import {AuthModule} from './auth/auth.module';
 
-import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
+import {AppComponent} from './app.component';
+import {AdminModule} from './admin/admin.module';
+import {AuthHeaderInterceptor} from './interceptors/header.interceptor';
+import {CatchErrorInterceptor} from './interceptors/http-error.interceptor';
 
-import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
-import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
-import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
-
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {HeaderComponent} from './components/header/header.component';
+import {HomeComponent} from './home/home.component';
+import {ChartComponent} from './components/chart/chart.component';
+import {SliderComponent} from './components/slider/slider.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {MeComponent} from './components/me/me.component';
+import {WorkTableComponent} from './components/work-table/work-table.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    ChartComponent,
+    SliderComponent,
+    FooterComponent,
+    MeComponent,
+    WorkTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +40,7 @@ import { HomeComponent } from './home/home.component';
     AuthModule,
     AdminModule,
     AppRoutingModule,
+    ChartsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -44,4 +54,5 @@ import { HomeComponent } from './home/home.component';
   entryComponents: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

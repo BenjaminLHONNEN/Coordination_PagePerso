@@ -11,9 +11,17 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [
+      "jquery",
+      "materialize-css"
+    ],
     "lib": [
       "es2017",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
 }

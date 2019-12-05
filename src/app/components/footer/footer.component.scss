@@ -1,0 +1,16 @@
+.footer-container{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+
+  width: available;
+  overflow-y: hidden;
+
+  img{
+    max-height: 100px;
+  }
+}
